@@ -1,10 +1,5 @@
-import sqlite3
+import os
 
-con = sqlite3.connect('weibo_COVID19.db')
-cursorObj = con.cursor()
-cursorObj.execute('SELECT post_id FROM posts WHERE post_id = ?', ('InnCfoT',))
-
-if cursorObj.fetchone():
-    print('yes')
-else:
-    print('no')
+username = str(os.environ.get('WEIBO_USERNAME'))
+password = str(os.environ.get('WEIBO_PASSWORD'))
+print(username, password)
